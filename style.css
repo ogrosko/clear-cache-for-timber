@@ -10,4 +10,5 @@ li#wp-admin-bar-clear-timber-cache .spinner {
 
 li#wp-admin-bar-clear-timber-cache .spinner.active {
 	display: block;
+	visibility: visible;
 }

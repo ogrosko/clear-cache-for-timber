@@ -53,10 +53,11 @@ function clear_timer_cache_javascript() { ?>
  */
 add_action( 'wp_ajax_clear_timber_cache_action', 'clear_timber_cache_callback' );
 function clear_timber_cache_callback() {
-	$tempDir = plugins_url().'/timber-library/cache/twig';
+	$tempDir = plugin_dir_path(__FILE__).'../timber-library/cache/twig';
+
 
 	if (file_exists($tempDir)) {
-		rmdir($tempDir);
+		rrmdir($tempDir);
 	}
 	
 	TimberCommand::clear_cache();
@@ -73,3 +74,16 @@ add_action('admin_head', 'clear_timber_cache_style');
 function clear_timber_cache_style() {
 	wp_enqueue_style( 'clear-timber-cache-style',  plugins_url().'/timber-clear-cache/style.css' );
 }
+
+function rrmdir($dir) { 
+   if (is_dir($dir)) { 
+     $objects = scandir($dir); 
+     foreach ($objects as $object) { 
+       if ($object != "." && $object != "..") { 
+         if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object); 
+       } 
+     } 
+     reset($objects); 
+     rmdir($dir); 
+   } 
+} 
