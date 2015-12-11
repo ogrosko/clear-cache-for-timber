@@ -12,9 +12,16 @@
 
 	"type": "wordpress-plugin",
 
+	"repositories":[
+        {
+            "type":"composer",
+            "url":"http://wpackagist.org"
+        }
+    ],
+
 	"require": {
 		"php": ">=5.4",
-		"jarednova/timber": ">0.20.0",
+		"wpackagist-plugin/timber-library": ">0.20.0",
 		"composer/installers": "~1.0"
 	}
 }
