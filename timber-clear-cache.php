@@ -4,7 +4,7 @@ Plugin Name: Timber Clear cache
 Plugin URI: 
 Description: Clear cache for Timber and Twig caching
 Author: Ondrej Grosko
-Version: 0.0.1
+Version: 0.0.2
 Author URI: 
 Network: True
 Text Domain: timber-clear-cache
