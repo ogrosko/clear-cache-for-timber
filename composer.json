@@ -1,5 +1,5 @@
 {
-	"name": "ogrosko/timber-clear-cache",
+	"name": "ogrosko/clear-cache-for-timber",
 	"description": "WordPress Plugin extends Timber WP plugin with clearing cache functionality.",
 	"keywords": ["wordpress", "timber", "clear cache"],
 	"license": "GPL-2.0+",
