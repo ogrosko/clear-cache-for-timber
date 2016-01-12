@@ -2,7 +2,7 @@
 Contributors: ogrosko
 Donate link:
 Tags: cache, clear, flush, twig
-Requires at least: 4.0.1
+Requires at least: 2.0.1
 Tested up to: 4.4
 Stable tag: 4.4
 License: GPLv2 or later

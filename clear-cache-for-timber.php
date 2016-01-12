@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: Timber Clear cache
-Plugin URI: 
+Plugin Name: Clear cache for timber
+Plugin URI: https://github.com/ogrosko/timber-clear-cache
 Description: Clear cache for Timber and Twig caching
 Author: Ondrej Grosko
-Version: 0.0.2
+Version: 0.0.3
 Author URI: 
 Network: True
-Text Domain: timber-clear-cache
+Text Domain: clear-cache-for-timber
 */
 
 //add button to admin menu bar
@@ -53,17 +53,7 @@ function clear_timer_cache_javascript() { ?>
  */
 add_action( 'wp_ajax_clear_timber_cache_action', 'clear_timber_cache_callback' );
 function clear_timber_cache_callback() {
-	$tempDir = plugin_dir_path(__FILE__).'../timber-library/cache/twig';
-
-
-	if (file_exists($tempDir)) {
-		rrmdir($tempDir);
-	}
-	
-	TimberCommand::clear_cache();
-
-    echo 'Timber cache cleared successfully';
-
+	echo TimberCommand::clear_cache();
 	wp_die();
 }
 
@@ -72,18 +62,5 @@ function clear_timber_cache_callback() {
  */
 add_action('admin_head', 'clear_timber_cache_style');
 function clear_timber_cache_style() {
-	wp_enqueue_style( 'clear-timber-cache-style',  plugins_url().'/timber-clear-cache/style.css' );
+	wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('style.css', __FILE__) );
 }
-
-function rrmdir($dir) { 
-   if (is_dir($dir)) { 
-     $objects = scandir($dir); 
-     foreach ($objects as $object) { 
-       if ($object != "." && $object != "..") { 
-         if (filetype($dir."/".$object) == "dir") rrmdir($dir."/".$object); else unlink($dir."/".$object); 
-       } 
-     } 
-     reset($objects); 
-     rmdir($dir); 
-   } 
-} 
