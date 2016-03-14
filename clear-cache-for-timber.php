@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Clear cache for timber
+Plugin Name: Clear cache for Timber
 Plugin URI: https://github.com/ogrosko/timber-clear-cache
 Description: Clear cache for Timber and Twig caching
 Author: Ondrej Grosko
-Version: 0.0.3
+Version: 0.0.4
 Author URI: 
 Network: True
 Text Domain: clear-cache-for-timber
@@ -29,24 +29,6 @@ function add_timber_clear_cache_admin_button() {
 }
 add_action('admin_bar_menu', 'add_timber_clear_cache_admin_button', 110);
 
-/**
- * Add footer script ajax posting
- */
-add_action( 'admin_footer', 'clear_timer_cache_javascript' ); // Write our JS below here
-function clear_timer_cache_javascript() { ?>
-	<script type="text/javascript" >
-		function clear_timber_cache(button) {
-			jQuery('li#wp-admin-bar-clear-timber-cache .spinner').addClass('active');
-			var data = {
-				'action': 'clear_timber_cache_action'
-			};
-
-			jQuery.post(ajaxurl, data, function(response) {
-				jQuery('li#wp-admin-bar-clear-timber-cache .spinner').removeClass('active');
-			});
-		}
-	</script> <?php
-}
 
 /**
  * PHP ajax script
@@ -58,9 +40,17 @@ function clear_timber_cache_callback() {
 }
 
 /**
- * Add custom styles
+ * Add plugin scripts
+ */
+add_action( 'admin_footer', 'clear_timer_cache_javascript' );
+function clear_timer_cache_javascript() { 
+	wp_enqueue_script('clear-cache-for-timber-javascript', plugins_url('assets/js/main.js', __FILE__), array(), '0.0.4', true);
+}
+
+/**
+ * Add plugin styles
  */
 add_action('admin_head', 'clear_timber_cache_style');
 function clear_timber_cache_style() {
-	wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('style.css', __FILE__) );
+	wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('assets/css/style.css', __FILE__), array(), '0.0.4' );
 }
