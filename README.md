@@ -1,14 +1,14 @@
-Clear cache for Timber
+Clear Cache for Timber
 ======================
 
-Contributors: ogrosko
-Donate link:
-Tags: cache, clear, flush, twig, Timber
-Requires at least: 2.0.1
-Tested up to: 4.4.2
-Stable tag: 4.4
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+> Contributors: ogrosko
+> Donate link:
+> Tags: cache, clear, flush, twig, Timber
+> Requires at least: 2.0.1
+> Tested up to: 4.4.2
+> Stable tag: 4.4
+> License: GPLv2 or later
+> License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 ## Description
 
