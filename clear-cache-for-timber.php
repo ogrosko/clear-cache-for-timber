@@ -10,25 +10,30 @@ Network: True
 Text Domain: clear-cache-for-timber
 */
 
-//add button to admin menu bar
-function add_timber_clear_cache_admin_button() {
+/**
+ * Add button to admin menu bar
+ */
+function add_timber_clear_cache_admin_button()
+{
     global $wp_admin_bar;
 
-    if ( !is_super_admin() || !is_admin_bar_showing() || !class_exists('Timber') )
+    if ( !is_super_admin() || !is_admin_bar_showing() || !class_exists('Timber') && !is_admin() ) { 
         return;
+    }
     
-    $wp_admin_bar->add_menu(array(
-        'id' => 'clear-timber-cache',
-        'title' => __( 'Clear Timber Cache'),
-        'href' => '#',
-        'meta' => array(
-        	'html' => '<div class="spinner"></div>',
-        	'onclick' => 'clear_timber_cache(jQuery(this))'
-        )
-    ));
+    if (is_admin()) {
+        $wp_admin_bar->add_menu(array(
+            'id' => 'clear-timber-cache',
+            'title' => __( 'Clear Timber Cache'),
+            'href' => '#',
+            'meta' => array(
+                'html' => '<div class="spinner"></div>',
+                'onclick' => 'clear_timber_cache(jQuery(this))'
+            )
+        ));
+    }
 }
 add_action('admin_bar_menu', 'add_timber_clear_cache_admin_button', 110);
-
 
 /**
  * PHP ajax script
@@ -44,7 +49,7 @@ function clear_timber_cache_callback() {
  */
 add_action( 'admin_footer', 'clear_timer_cache_javascript' );
 function clear_timer_cache_javascript() { 
-	wp_enqueue_script('clear-cache-for-timber-javascript', plugins_url('assets/js/main.js', __FILE__), array(), '0.0.4', true);
+	wp_enqueue_script('clear-cache-for-timber-javascript', plugins_url('assets/js/main.js', __FILE__), array(), '0.0.5', true);
 }
 
 /**
@@ -52,5 +57,5 @@ function clear_timer_cache_javascript() {
  */
 add_action('admin_head', 'clear_timber_cache_style');
 function clear_timber_cache_style() {
-	wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('assets/css/style.css', __FILE__), array(), '0.0.4' );
+	wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('assets/css/style.css', __FILE__), array(), '0.0.5' );
 }
