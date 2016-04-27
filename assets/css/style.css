@@ -1,14 +1,17 @@
-li#wp-admin-bar-clear-timber-cache .spinner {
-	bottom: -20px;
-    height: 20px;
-    left: 0;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    width: 20px;
+li#wp-admin-bar-clear-timber-cache {
+	position: relative!important;
+	padding-right: 20px!important;
 }
 
-li#wp-admin-bar-clear-timber-cache .spinner.active {
+li#wp-admin-bar-clear-timber-cache .loader {
+	bottom: 5px;
+    height: 20px;
+    right: 0;
+    position: absolute;
+    width: 20px;
+    display: none;
+}
+
+li#wp-admin-bar-clear-timber-cache .loader.active {
 	display: block;
-	visibility: visible;
 }
