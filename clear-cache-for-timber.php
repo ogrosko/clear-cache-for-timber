@@ -37,7 +37,7 @@ function add_timber_clear_cache_admin_button() {
  */
 add_action( 'wp_ajax_clear_timber_cache_action', 'clear_timber_cache_callback' );
 function clear_timber_cache_callback() {
-    if (class_exists(\Timber\Integrations\Command::class)) {
+    if (class_exists('Timber\\Integrations\\Command')) {
         echo \Timber\Integrations\Command::clear_cache();
     }
     else {
