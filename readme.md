@@ -9,9 +9,9 @@ Clear Cache for Timber
 >
 > Requires at least: 2.0.1
 >
-> Tested up to: 4.4.2
+> Tested up to: 4.5.2
 >
-> Stable tag: 4.4
+> Stable tag: 4.5
 >
 > License: GPLv2 or later
 >
@@ -34,6 +34,12 @@ Small Wordpress plugin for flushing cache of Timber (Twig Template Plugin for Wo
 
 ## Changelog
 
+
+### 0.0.6 (19-05-2016)
+
+Fixes:
+
+  - Compatibility fix with Timber v1.0.*
 
 ### 0.0.5 (27-04-2016)
 

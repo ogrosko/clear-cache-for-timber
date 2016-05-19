@@ -4,7 +4,7 @@ Plugin Name: Clear cache for Timber
 Plugin URI: https://github.com/ogrosko/timber-clear-cache
 Description: Clear cache for Timber and Twig caching
 Author: Ondrej Grosko
-Version: 0.0.5
+Version: 0.0.6
 Author URI: 
 Network: True
 Text Domain: clear-cache-for-timber
@@ -37,7 +37,12 @@ function add_timber_clear_cache_admin_button() {
  */
 add_action( 'wp_ajax_clear_timber_cache_action', 'clear_timber_cache_callback' );
 function clear_timber_cache_callback() {
-    echo TimberCommand::clear_cache();
+    if (class_exists(\Timber\Integrations\Command::class)) {
+        echo \Timber\Integrations\Command::clear_cache();
+    }
+    else {
+        echo TimberCommand::clear_cache();
+    }
     wp_die();
 }
 
@@ -47,6 +52,6 @@ function clear_timber_cache_callback() {
 add_action( 'admin_enqueue_scripts', 'clear_timer_cache_javascript' );
 add_action( 'admin_bar_init', 'clear_timer_cache_javascript' );
 function clear_timer_cache_javascript() { 
-    wp_enqueue_script('clear-cache-for-timber-javascript', plugins_url('assets/js/main.js', __FILE__), array(), '0.0.5', true);
-    wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('assets/css/style.css', __FILE__), array(), '0.0.5' );
+    wp_enqueue_script('clear-cache-for-timber-javascript', plugins_url('assets/js/main.js', __FILE__), array(), '0.0.6', true);
+    wp_enqueue_style( 'clear-cache-for-timber-style',  plugins_url('assets/css/style.css', __FILE__), array(), '0.0.6' );
 }
