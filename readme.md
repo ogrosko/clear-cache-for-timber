@@ -35,6 +35,12 @@ Small Wordpress plugin for flushing cache of Timber (Twig Template Plugin for Wo
 ## Changelog
 
 
+### 0.1.0 (7-06-2016)
+
+Features:
+
+  - Added Wordpress cron job for daily cache clearing (use `define('CLEAR_CACHE_FOR_TIMBER_DISABLE_CRON_JOB_CLEANUP', true);` for disable)
+
 ### 0.0.6 (19-05-2016)
 
 Fixes:
