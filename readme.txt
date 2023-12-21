@@ -1,10 +1,10 @@
 === Clear cache for Timber ===
-Contributors: ogrosko
+Contributors: ogrosko, columbian-chris
 Donate link:
 Tags: cache, clear, flush, twig, Timber
 Requires at least: 2.0.1
-Tested up to: 4.5.2
-Stable tag: 4.5
+Tested up to: 6.4.2
+Stable tag: 6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ Small Wordpress plugin for flushing cache of Timber (Twig Template Plugin for Wo
 1. Clear cache for Timber in Wordpress
 
 == Changelog ==
+
+= 0.2.0 - 21/12/2023 =
+* compatibility with Timber 2.0 (thanks to columbian-chris)
 
 = 0.1.0 - 7/06/2016 =
 * Added Wordpress cron job for daily cache clearing (use define('CLEAR_CACHE_FOR_TIMBER_DISABLE_CRON_JOB_CLEANUP', true); for disable)
