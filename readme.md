@@ -34,7 +34,7 @@ Small Wordpress plugin for flushing cache of Timber (Twig Template Plugin for Wo
 
 ## Changelog
 
-### 0.1.0 (21-12-2023)
+### 0.2.0 (21-12-2023)
 
 Other:
 
